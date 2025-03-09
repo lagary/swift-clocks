@@ -18,19 +18,5 @@ Pod::Spec.new do |s|
   
   s.source_files = 'Sources/Clocks/**/*'
   
-  # Specifying dependencies from custom repositories
-  s.dependency 'ConcurrencyExtras', '~> 1.0.0'
-  s.dependency 'XCTestDynamicOverlay', '~> 1.2.2'
-  
   s.compiler_flags = '-enable-experimental-feature StrictConcurrency'
-  
-  # Specify custom pod sources
-  s.prepare_command = <<-CMD
-    echo 'source "https://github.com/lagary/swift-concurrency-extras.git"' > ~/.cocoapods/repos/lagary-concurrency-extras
-    echo 'source "https://github.com/lagary/swift-issue-reporting.git"' > ~/.cocoapods/repos/lagary-issue-reporting
-  CMD
-  
-  # Pod custom sources specifications
-  s.dependency 'ConcurrencyExtras', :git => 'https://github.com/lagary/swift-concurrency-extras.git', :branch => 'main'
-  s.dependency 'XCTestDynamicOverlay', :git => 'https://github.com/lagary/swift-issue-reporting.git', :branch => 'main'
 end
